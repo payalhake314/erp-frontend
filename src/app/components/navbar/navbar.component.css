@@ -1,0 +1,24 @@
+nav{
+  @apply bg-orange-200;
+}
+.nav_link{
+  @apply relative flex flex-col justify-center items-center p-2 w-12 h-12 rounded-[50%] hover:bg-[#ffcb8f] hover:text-orange-700 transition-colors duration-200;
+
+}
+.nav_link.active{
+  @apply bg-[#ffcb8f] text-orange-700;
+}
+.nav_link span.label{
+  @apply absolute text-xs bg-orange-950 text-slate-50 px-[4px] py-[2px] rounded-md uppercase;
+  top: 0px;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: visibility, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+  transform: translateY(-2rem);
+}
+.nav_link:hover span.label{
+  opacity: 1;
+  visibility: visible;
+}
