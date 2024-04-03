@@ -8,8 +8,14 @@
     object-position: center;
 }
 .details{
-    @apply px-3;
+    @apply px-5;
 }
 .detail{
-    @apply flex items-center gap-x-5 my-1;
+    @apply flex items-center gap-x-3 my-1;
+}
+.detail_wrap{
+    @apply h-fit p-2 grid grid-cols-2 gap-2;
+}
+.detail_item{
+    @apply aspect-video bg-orange-200;
 }
