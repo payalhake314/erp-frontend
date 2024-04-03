@@ -2,7 +2,7 @@ nav{
   @apply bg-orange-200;
 }
 .nav_link{
-  @apply relative flex flex-col justify-center items-center p-2 w-12 h-12 rounded-[50%] hover:bg-[#ffcb8f] hover:text-orange-700 transition-colors duration-200;
+  @apply relative flex flex-col justify-center items-center p-2 w-10 h-10 rounded-[50%] hover:bg-[#ffcb8f] hover:text-orange-700 transition-colors duration-200;
 
 }
 .nav_link.active{

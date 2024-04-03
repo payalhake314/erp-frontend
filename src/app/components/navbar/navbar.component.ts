@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NavRoute } from '../../types/nav.types';
 
 @Component({
   selector: 'app-navbar',
@@ -10,16 +11,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  routes = [
+  routes: NavRoute[] = [
     {
-      name: 'students',
-      icon: 'person_raised_hand',
-      route: '/students'
+      name: 'profile',
+      icon: 'person',
+      url: '/profile',
     },
-    {
-      name: 'faculty',
-      icon: 'cognition',
-      route: '/faculties'
-    }
-  ]
+  ];
 }
