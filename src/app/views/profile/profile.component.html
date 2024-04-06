@@ -1,5 +1,5 @@
 <div class="w-full lg:h-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 gap-3">
-  <div class="col-span-full lg:col-span-1 bg-slate-100 bg-opacity-30 rounded-lg">
+  <div class="col-span-full lg:col-span-1 bg-slate-100 bg-opacity-30 rounded-lg relative p-3">
     <div class="avatar mx-auto mt-5">
       <img src="assets/images/profile.jpg" alt="" />
     </div>
@@ -9,22 +9,26 @@
     <div class="details">
       <h1 class="detail"><span class="material-symbols-rounded text-3xl"> cake </span> <span>28-Jan-2002</span></h1>
       <h1 class="detail"><span class="material-symbols-rounded text-3xl"> school </span> <span>Lorem Ipsums</span></h1>
+      <h1 class="detail"><span class="material-symbols-rounded text-3xl"> mail </span> <span>loremispum123.com</span></h1>
     </div>
     <div class="w-[calc(100%-2rem)] mx-auto h-[1px] my-5 bg-orange-400"></div>
     <div class="px-5 text-base text-orange-900">
       <h6 class="w-fit font-semibold">About</h6>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto corporis magnam fugiat quo architecto magni!</p>
     </div>
-    <div class="w-[calc(100%-2rem)] mx-auto h-[1px] my-5 bg-orange-400"></div>
-    <div class="details">
-      <h1 class="detail"><span class="material-symbols-rounded text-3xl"> mail </span> <span>loremispum123.com</span></h1>
-    </div>
   </div>
-  <div class="col-span-full lg:col-span-3 bg-slate-100 bg-opacity-30 rounded-lg">
-    <div class="detail_wrap">
-      <div class="detail_item col-span-1"></div>
-      <div class="detail_item col-span-1"></div>
-      <div class="detail_item col-span-2"></div>
+  <div class="col-span-full lg:col-span-3 bg-slate-100 bg-opacity-30 rounded-lg flex flex-col lg:flex-row">
+    <div class="detail_item flex-col">
+      <h2 class="text-2xl text-orange-900 mb-3">Courses Enrolled</h2>
+      <ul class="courses">
+        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-1</span></li>
+        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-2</span></li>
+        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-3</span></li>
+        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-4</span></li>
+      </ul>
+    </div>
+    <div class="detail_item flex-col">
+      <h2 class="text-2xl text-orange-900 mb-3">Performance</h2>
     </div>
   </div>
 </div>

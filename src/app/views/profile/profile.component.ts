@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
+  uuid: string = crypto.randomUUID();
 }
