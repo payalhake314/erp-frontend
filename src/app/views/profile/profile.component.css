@@ -41,21 +41,27 @@
   content: "@";
 }
 .info {
-  @apply w-auto mt-[50%] p-3 md:ml-[18rem]  md:mt-16 md:border-l border-slate-300 border-dashed;
+  @apply w-auto mt-[50%] px-3 py-5 md:ml-[18rem] md:mt-16 bg-white rounded-l-2xl mb-5;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05)
 }
 .field_wrapper {
-  @apply px-4;
+  @apply px-2;
 }
 .field_wrapper:not(:last-child) {
   @apply mb-5 pb-4 border-b border-dashed border-slate-400;
 }
 .field_name {
-  @apply text-slate-500 text-lg font-bold;
+  @apply text-slate-500 text-lg font-bold px-2;
 }
 .field_value {
-  @apply text-slate-600 text-base;
+  @apply outline-none bg-slate-100 text-slate-600 text-base p-2 border-b border-sky-500 w-full focus:text-sky-500;
 }
-
+.field_value:read-only, .field_value:disabled{
+  @apply border-b-0 bg-transparent focus:text-slate-600;
+}
+textarea:disabled{
+  resize: none;
+}
 .icon_btn{
   @apply hover:bg-opacity-20 text-sky-600 absolute bg-sky-500 bg-opacity-15 border border-sky-500 rounded-full w-10 h-10;
 }

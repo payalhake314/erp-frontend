@@ -11,30 +11,39 @@
         <h4 class="username">loremipsum</h4>
       </div>
     </div>
-    <button class="icon_btn top-2 right-4">
+    <button class="icon_btn top-2 right-4" (click)="isEditing = !isEditing">
       <span class="material-symbols-rounded text-2xl"> edit </span>
     </button>
   </div>
-  <div class="info">
+  <form class="info">
     <div class="field_wrapper">
-      <h4 class="field_name">Email</h4>
-      <h5 class="field_value">{{ "lorem@ipsum.com" }}</h5>
+      <h4 class="field_name">User ID</h4>
+      <h5 class="field_value">{{ uuid }}</h5>
     </div>
     <div class="field_wrapper">
-      <h4 class="field_name">Address</h4>
-      <h5 class="field_value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, commodi.</h5>
+      <label class="field_name" for="email">Email</label>
+      <input type="email" id="email" name="email" class="field_value" value="lorem@ipsum.com" [disabled]="!isEditing" />
     </div>
     <div class="field_wrapper">
-      <h4 class="field_name">Contact</h4>
-      <h5 class="field_value">+1 1234567890</h5>
+      <label class="field_name" for="address">Address</label>
+      <textarea class="field_value" name="address" id="address" [disabled]="!isEditing">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem rerum iure ex iste sunt minima, mollitia eveniet corrupti beatae consequatur a nemo modi nobis eligendi expedita alias labore quibusdam eum.</textarea
+      >
     </div>
     <div class="field_wrapper">
-      <h4 class="field_name">Date Of Birth</h4>
-      <h5 class="field_value">12-10-1994</h5>
+      <label class="field_name" for="contact">Contact</label>
+      <input class="field_value" type="tel" name="contact" id="contact" value="1234567890" [disabled]="!isEditing" />
     </div>
     <div class="field_wrapper">
-      <h4 class="field_name">Date Of Joining</h4>
-      <h5 class="field_value">10-05-2001</h5>
+      <label class="field_name" for="dob">Date Of Birth</label>
+      <input class="field_value" type="date" name="dob" id="dob" value="1995-10-20" [disabled]="!isEditing" />
     </div>
-  </div>
+    <div class="field_wrapper">
+      <label class="field_name" for="doj">Date Of Joining</label>
+      <input class="field_value" readonly type="date" name="doj" id="doj" value="2016-04-19" [disabled]="!isEditing" />
+    </div>
+    @if (isEditing) {
+      <button type="button" class="text-sky-500 bg-sky-500 bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-lg">Save</button>
+    }
+  </form>
 </div>

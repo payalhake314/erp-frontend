@@ -10,4 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileComponent {
   uuid: string = crypto.randomUUID();
+  isEditing: boolean = false;
 }
