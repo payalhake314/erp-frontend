@@ -1,12 +1,16 @@
-<nav class="w-fit h-fit fixed left-1/2 bottom-8 -translate-x-1/2 border border-orange-700 z-[1] flex items-center p-1 gap-5 rounded-full">
+<nav class="w-fit h-fit fixed left-1/2 bottom-8 -translate-x-1/2 border border-sky-500 z-[1] flex items-center p-1 gap-5 rounded-full">
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav_link">
     <span class="material-symbols-rounded text-3xl"> home </span>
     <span class="label">home</span></a
   >
   @for (route of routes; track $index) {
-  <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
-    <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
-    <span class="label">{{ route.name }}</span></a
-  >
-  }
+    <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
+      <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
+      <span class="label">{{ route.name }}</span></a
+      >
+    }
+    <button class="nav_link">
+      <span class="material-symbols-rounded text-3xl"> logout </span>
+      <span class="label">logout</span></button
+    >
 </nav>

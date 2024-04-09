@@ -1,34 +1,40 @@
-<div class="w-full lg:h-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-3 gap-3">
-  <div class="col-span-full lg:col-span-1 bg-slate-100 bg-opacity-30 rounded-lg relative p-3">
-    <div class="avatar mx-auto mt-5">
-      <img src="assets/images/profile.jpg" alt="" />
+<div class="w-full h-fit">
+  <div class="wrapper">
+    <div class="avatar">
+      <img src="/assets/images/profile.jpg" alt="" />
+      <div class="gender_icon gender_icon">
+        <span class="material-symbols-rounded">female</span>
+      </div>
+      <div class="user_info">
+        <h2 class="name">Lorem Ipsum</h2>
+        <h4 class="about">Teacher</h4>
+        <h4 class="username">loremipsum</h4>
+      </div>
     </div>
-    <h4 class="text-orange-900 mx-auto text-2xl w-fit mt-2">Lorem Ipsum</h4>
-    <h6 class="text-orange-900 mx-auto text-base w-fit mt-1">{{ "@" }}loremipsum</h6>
-    <div class="w-[calc(100%-2rem)] mx-auto h-[1px] my-5 bg-orange-400"></div>
-    <div class="details">
-      <h1 class="detail"><span class="material-symbols-rounded text-3xl"> cake </span> <span>28-Jan-2002</span></h1>
-      <h1 class="detail"><span class="material-symbols-rounded text-3xl"> school </span> <span>Lorem Ipsums</span></h1>
-      <h1 class="detail"><span class="material-symbols-rounded text-3xl"> mail </span> <span>loremispum123.com</span></h1>
-    </div>
-    <div class="w-[calc(100%-2rem)] mx-auto h-[1px] my-5 bg-orange-400"></div>
-    <div class="px-5 text-base text-orange-900">
-      <h6 class="w-fit font-semibold">About</h6>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto corporis magnam fugiat quo architecto magni!</p>
-    </div>
+    <button class="icon_btn top-2 right-4">
+      <span class="material-symbols-rounded text-2xl"> edit </span>
+    </button>
   </div>
-  <div class="col-span-full lg:col-span-3 bg-slate-100 bg-opacity-30 rounded-lg flex flex-col lg:flex-row">
-    <div class="detail_item flex-col">
-      <h2 class="text-2xl text-orange-900 mb-3">Courses Enrolled</h2>
-      <ul class="courses">
-        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-1</span></li>
-        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-2</span></li>
-        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-3</span></li>
-        <li class="course"><span class="material-symbols-rounded"> school </span> <span class="course_name">Course-4</span></li>
-      </ul>
+  <div class="info">
+    <div class="field_wrapper">
+      <h4 class="field_name">Email</h4>
+      <h5 class="field_value">{{ "lorem@ipsum.com" }}</h5>
     </div>
-    <div class="detail_item flex-col">
-      <h2 class="text-2xl text-orange-900 mb-3">Performance</h2>
+    <div class="field_wrapper">
+      <h4 class="field_name">Address</h4>
+      <h5 class="field_value">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, commodi.</h5>
+    </div>
+    <div class="field_wrapper">
+      <h4 class="field_name">Contact</h4>
+      <h5 class="field_value">+1 1234567890</h5>
+    </div>
+    <div class="field_wrapper">
+      <h4 class="field_name">Date Of Birth</h4>
+      <h5 class="field_value">12-10-1994</h5>
+    </div>
+    <div class="field_wrapper">
+      <h4 class="field_name">Date Of Joining</h4>
+      <h5 class="field_value">10-05-2001</h5>
     </div>
   </div>
 </div>
