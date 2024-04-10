@@ -17,5 +17,6 @@ export class NavbarComponent {
       icon: 'person',
       url: '/profile',
     },
+    { name: 'login', icon: 'passkey', url: '/login' },
   ];
 }

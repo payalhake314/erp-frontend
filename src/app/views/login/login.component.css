@@ -1,0 +1,7 @@
+.title{
+    font-size: clamp(6rem, 4.4615rem + 6.1538vw, 10rem);
+    font-variation-settings: 'wght' 100;
+}
+.field_wrapper {
+  @apply relative w-full md:w-3/4 mx-auto px-4 pb-5;
+}
