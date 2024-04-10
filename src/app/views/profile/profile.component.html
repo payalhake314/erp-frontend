@@ -6,44 +6,71 @@
         <span class="material-symbols-rounded">female</span>
       </div>
       <div class="user_info">
-        <h2 class="name">Lorem Ipsum</h2>
-        <h4 class="about">Teacher</h4>
-        <h4 class="username">loremipsum</h4>
+        <h2 class="name">{{ personalDetails.get("name")?.value }}</h2>
+        <h4 class="about capitalize">{{ accountDetails.get("role")?.value }}</h4>
+        <h4 class="username">{{ accountDetails.get("username")?.value }}</h4>
       </div>
     </div>
-    <button class="icon_btn top-2 right-4" (click)="isEditing = !isEditing">
+  </div>
+  <form [formGroup]="personalDetails" class="info mt-[50%]">
+    <button class="icon_btn top-4 right-4" (click)="toggleStatePersonal()">
       <span class="material-symbols-rounded text-2xl"> edit </span>
     </button>
-  </div>
-  <form class="info">
+    <h3 class="text-sky-600 font-medium text-3xl mb-3 px-4 py-2">Personal details</h3>
     <div class="field_wrapper">
-      <h4 class="field_name">User ID</h4>
-      <h5 class="field_value">{{ uuid }}</h5>
+      <label class="field_name" for="name">Name</label>
+      <input type="text" id="name" name="name" class="field_value" formControlName="name" />
     </div>
     <div class="field_wrapper">
       <label class="field_name" for="email">Email</label>
-      <input type="email" id="email" name="email" class="field_value" value="lorem@ipsum.com" [disabled]="!isEditing" />
+      <input type="email" id="email" name="email" class="field_value" formControlName="email" />
     </div>
     <div class="field_wrapper">
       <label class="field_name" for="address">Address</label>
-      <textarea class="field_value" name="address" id="address" [disabled]="!isEditing">
+      <textarea class="field_value" name="address" id="address" formControlName="address" rows="3">
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem rerum iure ex iste sunt minima, mollitia eveniet corrupti beatae consequatur a nemo modi nobis eligendi expedita alias labore quibusdam eum.</textarea
       >
     </div>
     <div class="field_wrapper">
       <label class="field_name" for="contact">Contact</label>
-      <input class="field_value" type="tel" name="contact" id="contact" value="1234567890" [disabled]="!isEditing" />
+      <input class="field_value" type="tel" name="contact" id="contact" formControlName="contact" />
     </div>
     <div class="field_wrapper">
       <label class="field_name" for="dob">Date Of Birth</label>
-      <input class="field_value" type="date" name="dob" id="dob" value="1995-10-20" [disabled]="!isEditing" />
+      <input class="field_value" type="date" name="dob" id="dob" formControlName="dob" />
     </div>
     <div class="field_wrapper">
       <label class="field_name" for="doj">Date Of Joining</label>
-      <input class="field_value" readonly type="date" name="doj" id="doj" value="2016-04-19" [disabled]="!isEditing" />
+      <input class="field_value" readonly type="date" name="doj" formControlName="doj" id="doj" />
     </div>
-    @if (isEditing) {
-      <button type="button" class="text-sky-500 bg-sky-500 bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-lg">Save</button>
+    @if (!personalDetails.get('name')?.disabled) {
+    <button type="button" class="text-sky-500 bg-sky-500 bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-lg">Save</button>
+    }
+  </form>
+  <form [formGroup]="accountDetails" class="info mt-7">
+    <button class="icon_btn top-4 right-4" (click)="toggleStateAccount()">
+      <span class="material-symbols-rounded text-2xl"> edit </span>
+    </button>
+    <h3 class="text-sky-600 font-medium text-3xl mb-3 px-4 py-2">Account details</h3>
+    <div class="field_wrapper">
+      <label class="field_name" for="userid">User ID</label>
+      <input class="field_value" formControlName="userid" name="userid" id="userid" readonly />
+    </div>
+    <div class="field_wrapper">
+      <label class="field_name" for="username">Username</label>
+      <input type="text" id="username" name="username" class="field_value" formControlName="username" />
+    </div>
+    <div class="field_wrapper">
+      <label class="field_name" for="status">Status</label>
+      <input type="text" id="status" name="status" class="field_value" formControlName="status" />
+    </div>
+    <div class="field_wrapper">
+      <label class="field_name" for="role">Role</label>
+      <input type="text" id="role" name="role" class="field_value" formControlName="role" />
+    </div>
+
+    @if (!accountDetails.get('username')?.disabled) {
+    <button type="button" class="text-sky-500 bg-sky-500 bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-lg">Save</button>
     }
   </form>
 </div>
