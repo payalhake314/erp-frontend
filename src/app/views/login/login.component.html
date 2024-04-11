@@ -1,0 +1,32 @@
+<div class="w-screen h-screen flex items-center justify-center p-4">
+  <form [formGroup]="user" (ngSubmit)="onSubmit($event)" class="w-full lg:w-3/4 h-3/4 bg-white rounded-2xl shadow-md p-4 flex flex-col gap-5">
+    <h1 class="material-symbols-rounded mx-auto text-6xl font-semibold text-sky-500 title">shield_person</h1>
+    <div class="field_wrapper mt-10">
+      <label class="field_name" for="username">Username</label>
+      <input class="field_value" [ngClass]="{ invalid: user.get('username')?.invalid && user.get('username')?.touched }" formControlName="username" type="text" name="username" id="username" />
+      <span class="field_msg">
+        @if(user.controls['username'].errors?.['required']){
+        {{ "Required username!" }}
+        }@else if (user.controls['username'].errors?.['invalid']) {
+        {{ "Invalid Credentials!" }}
+        }@else{
+        {{ "Please match the requested pattern!" }}
+        }
+      </span>
+    </div>
+    <div class="field_wrapper mt-3">
+      <label class="field_name" for="password">Password</label>
+      <input class="field_value" [ngClass]="{ invalid: user.get('password')?.invalid && user.get('password')?.touched }" type="password" formControlName="password" name="password" id="password" />
+      <span class="field_msg">
+        @if(user.controls['password'].errors?.['required']){
+        {{ "Required password!" }}
+        }@else if (user.controls['password'].errors?.['invalid']) {
+        {{ "Invalid Credentials" }}
+        }@else{
+        {{ "Please match the requested pattern!" }}
+        }
+      </span>
+    </div>
+    <button class="w-fit ml-4 md:ml-28 lg:ml-32 mt-3 px-4 py-2 text-sky-500 bg-sky-500 bg-opacity-10 rounded-lg">Sign in</button>
+  </form>
+</div>

@@ -29,3 +29,23 @@ a:has(.material-symbols-rounded) {
   align-items: center;
   justify-content: center;
 }
+
+.field_name {
+  @apply text-slate-500 text-lg font-bold px-2;
+}
+.field_value {
+  @apply outline-none bg-slate-100 text-slate-600 text-base p-2 border-b border-sky-500 w-full focus:text-sky-500;
+}
+.field_value:read-only,
+.field_value:disabled {
+  @apply border-b-0 bg-transparent focus:text-slate-600;
+}
+.field_value.invalid{
+  @apply border-red-600;
+}
+.field_value.invalid~.field_msg{
+  @apply opacity-100 visible;
+}
+.field_msg{
+  @apply opacity-0 absolute bottom-0 left-6 invisible text-sm text-red-600 transition-colors duration-200;
+}

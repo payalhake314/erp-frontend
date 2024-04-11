@@ -3,14 +3,19 @@
     <span class="material-symbols-rounded text-3xl"> home </span>
     <span class="label">home</span></a
   >
-  @for (route of routes; track $index) {
-    <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
-      <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
-      <span class="label">{{ route.name }}</span></a
-      >
-    }
-    <button class="nav_link">
-      <span class="material-symbols-rounded text-3xl"> logout </span>
-      <span class="label">logout</span></button
-    >
+  @for (route of routes; track $index) { @if (route.isGuarded && isAuthenticated) {
+  <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
+    <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
+    <span class="label">{{ route.name }}</span></a
+  >
+  }@if(!route.isGuarded) {
+  <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
+    <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
+    <span class="label">{{ route.name }}</span></a
+  >
+  } }
+  <button class="nav_link" (click)="onLogout()">
+    <span class="material-symbols-rounded text-3xl"> logout </span>
+    <span class="label">logout</span>
+  </button>
 </nav>
