@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,6 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,14 @@ import {
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
+  constructor(private authService: AuthService, private router: Router) {
+    effect(() => {
+      if (this.authService.authStatus()) {
+        this.router.navigate(['/profile']);
+      }
+    });
+  }
+
   user: FormGroup = new FormGroup({
     username: new FormControl('', [
       Validators.required,
@@ -39,8 +49,8 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  onSubmit(evt: Event){
+  onSubmit(evt: Event) {
     evt.preventDefault();
-    // Handle data via account service
+    this.authService.login(this.user.value);
   }
 }

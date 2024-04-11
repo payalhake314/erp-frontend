@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,6 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +17,15 @@ import {
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
+  
+  constructor(private authService: AuthService, private router: Router ){
+    effect(()=>{
+      if(!this.authService.authStatus()){
+        this.router.navigate(['/login'])
+      }
+    })
+  }
+
   personalDetails = new FormGroup({
     name: new FormControl({ value: 'Lorem Ipsum', disabled: true }, [
       Validators.required,
@@ -58,6 +69,7 @@ export class ProfileComponent {
     status: new FormControl({ value: 'ACTIVE', disabled: true }),
     role: new FormControl({ value: 'TEACHER', disabled: true }),
   });
+
   toggleStatePersonal() {
     Object.keys(this.personalDetails.controls)
       .filter((ky) => ky !== 'doj')
@@ -68,6 +80,7 @@ export class ProfileComponent {
         }
       });
   }
+
   toggleStateAccount() {
     const filtGrp: string[] = ['userid', 'status'];
     Object.keys(this.accountDetails.controls)
