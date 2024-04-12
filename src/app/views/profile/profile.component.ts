@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { Status } from '../../types/auth.types';
 
 @Component({
   selector: 'app-profile',
@@ -17,13 +18,12 @@ import { Router } from '@angular/router';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
-  
-  constructor(private authService: AuthService, private router: Router ){
-    effect(()=>{
-      if(!this.authService.authStatus()){
-        this.router.navigate(['/login'])
+  constructor(private authService: AuthService, private router: Router) {
+    effect(() => {
+      if (this.authService.authStatus() === Status.LOGGEDOUT) {
+        this.router.navigate(['/login']);
       }
-    })
+    });
   }
 
   personalDetails = new FormGroup({
@@ -93,4 +93,3 @@ export class ProfileComponent {
       });
   }
 }
-

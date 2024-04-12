@@ -8,7 +8,7 @@
     <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
     <span class="label">{{ route.name }}</span></a
   >
-  }@if(!route.isGuarded) {
+  }@if(!route.isGuarded && !isAuthenticated) {
   <a [routerLink]="route.url" routerLinkActive="active" class="nav_link">
     <span class="material-symbols-rounded text-2xl"> {{ route.icon }} </span>
     <span class="label">{{ route.name }}</span></a

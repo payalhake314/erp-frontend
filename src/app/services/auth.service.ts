@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, WritableSignal, signal } from '@angular/core';
 import { IAuthInfo, IUserCred } from '../types/user.type';
+import { Status } from '../types/auth.types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private _http: HttpClient) {}
-  authStatus: WritableSignal<boolean> = signal<boolean>(false);
+  authStatus: WritableSignal<Status> = signal<Status>(Status.LOGGEDOUT);
 
   login(data: IUserCred) {
     if (data.username === 'lorem_ipsum' && data.password === 'Lorem@123') {
@@ -18,7 +19,7 @@ export class AuthService {
         JSON.stringify({ username: data.username, expires: exp.toISOString() })
       );
     }
-    this.authStatus.set(true);
+    this.authStatus.set(Status.LOGGEDIN);
   }
 
   checkAuthStatus(): boolean {
@@ -26,12 +27,12 @@ export class AuthService {
     const status =
       authData !== null &&
       new Date((<IAuthInfo>JSON.parse(authData)).expires) > new Date();
-    this.authStatus.update(() => status);
+    this.authStatus.update(() => (status ? Status.LOGGEDIN : Status.LOGGEDOUT));
     return status;
   }
 
   logout() {
     localStorage.removeItem('AUTH_INFO');
-    this.authStatus.set(false);
+    this.authStatus.set(Status.LOGGEDOUT);
   }
 }

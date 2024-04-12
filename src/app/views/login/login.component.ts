@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { Status } from '../../types/auth.types';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
     effect(() => {
-      if (this.authService.authStatus()) {
+      if (this.authService.authStatus() === Status.LOGGEDIN) {
         this.router.navigate(['/profile']);
       }
     });
