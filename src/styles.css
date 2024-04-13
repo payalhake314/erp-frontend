@@ -40,12 +40,25 @@ a:has(.material-symbols-rounded) {
 .field_value:disabled {
   @apply border-b-0 bg-transparent focus:text-slate-600;
 }
-.field_value.invalid{
+.field_value.invalid {
   @apply border-red-600;
 }
-.field_value.invalid~.field_msg{
+.field_value.invalid ~ .field_msg {
   @apply opacity-100 visible;
 }
-.field_msg{
+.field_msg {
   @apply opacity-0 absolute bottom-0 left-6 invisible text-sm text-red-600 transition-colors duration-200;
+}
+.card_shadow {
+  box-shadow: 0px 0px 7px #00000033;
+}
+
+.emoji_end::after{
+  content: var(--emoji);
+  margin-left: 0.5rem;
+
+}
+.emoji_being::before{
+  content: var(--emoji);
+  margin-right: 0.5rem;
 }

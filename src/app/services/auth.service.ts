@@ -13,7 +13,7 @@ export class AuthService {
   login(data: IUserCred) {
     if (data.username === 'lorem_ipsum' && data.password === 'Lorem@123') {
       const exp = new Date();
-      exp.setMinutes(exp.getMinutes() + 10);
+      exp.setMinutes(exp.getMinutes() + 30);
       localStorage.setItem(
         'AUTH_INFO',
         JSON.stringify({ username: data.username, expires: exp.toISOString() })
@@ -28,6 +28,9 @@ export class AuthService {
       authData !== null &&
       new Date((<IAuthInfo>JSON.parse(authData)).expires) > new Date();
     this.authStatus.update(() => (status ? Status.LOGGEDIN : Status.LOGGEDOUT));
+    if (!status) {
+      localStorage.removeItem('AUTH_INFO');
+    }
     return status;
   }
 

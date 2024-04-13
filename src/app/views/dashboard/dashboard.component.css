@@ -1,0 +1,19 @@
+.hero_text {
+  @apply text-3xl flex items-center;
+}
+.hero_text .name {
+  @apply text-sky-400 underline underline-offset-2 decoration-2 decoration-emerald-500 decoration-wavy;
+}
+.stat_items {
+  @apply flex gap-x-3 mt-10 mb-10;
+}
+.stat_item {
+  @apply cursor-pointer text-sky-400 relative flex items-center justify-center gap-y-1 w-24 h-24 rounded-full border-4 border-sky-300 bg-sky-500 bg-opacity-10;
+}
+.stat_item .value {
+  @apply text-4xl font-semibold;
+}
+.stat_item .label {
+  font-size: 15px;
+  @apply absolute bottom-0 translate-y-[calc(100%+5px)] text-slate-800;
+}
