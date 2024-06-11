@@ -8,7 +8,7 @@ nav {
   @apply bg-sky-600 bg-opacity-15 text-sky-600;
 }
 .nav_link span.label {
-  @apply absolute text-xs bg-sky-600 bg-opacity-15 text-sky-600 px-2 py-1 rounded-md uppercase;
+  @apply absolute text-xs bg-sky-500 text-slate-100 px-2 py-1 rounded-md uppercase;
   top: 0px;
   opacity: 0;
   visibility: hidden;
